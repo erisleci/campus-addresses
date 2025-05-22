@@ -1,4 +1,5 @@
 import { App } from '../../../App';
+import { createFieldsStub } from '../../../testing/fields.stub';
 
 describe('Create address', () => {
     it('create local address', () => {
@@ -17,6 +18,10 @@ describe('Create address', () => {
                     value: 'AT',
                 },
             },
+            // body: createFieldsStub('local')
+            //     .withStreet({ label: 'Street' })
+            //     .withBuildingName({ label: 'Building Name' })
+            //     .withCountry({ label: 'Country', disabled: true }),
         });
         cy.intercept('POST', '**/addresses', {}).as('**/addresses');
 

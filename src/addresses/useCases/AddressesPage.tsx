@@ -1,6 +1,7 @@
 import { FocusPageLayout, HeroTitle } from '@design-system';
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react';
 import { object, string, ValidationError } from 'yup';
+import { createFormSchema } from './lib/formSchema';
 
 type Field = {
     label: string;
@@ -44,17 +45,8 @@ export const AddressesPage = () => {
         setGeneralError(undefined);
 
         try {
-            const schema = Object.entries(fields).reduce((result, [key, field]) => {
-                if (field.requirement !== 'MANDATORY') {
-                    return result;
-                }
-
-                return {
-                    ...result,
-                    [key]: string().required(`${field.label} is missing.`),
-                };
-            }, {});
-            const address = object(schema).validateSync(data, { abortEarly: false });
+            const schema = createFormSchema(fields);
+            const address = schema.validateSync(data, { abortEarly: false });
 
             setIsLoading(true);
 
