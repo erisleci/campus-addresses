@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createFormSchema, Fields } from '../formSchema';
+import { createFormSchema } from '../formSchema';
 import { createFieldsStub } from '../../../../testing/fields.stub';
 
 describe('formSchema', () => {
@@ -38,20 +38,11 @@ describe('formSchema', () => {
 
         const schema = createFormSchema(fields);
 
-        try {
+        expect(() => {
             schema.validateSync({
                 buildingName: 'Building',
                 districtName: 'D',
             });
-        } catch (e) {
-            console.log(e);
-        }
-
-        expect(
-            schema.validateSync({
-                buildingName: 'Building',
-                districtName: 'D',
-            }),
-        ).rejects.toThrow('Street is missing.');
+        }).toThrowError('street is missing.');
     });
 });
