@@ -5,7 +5,7 @@
     "lib": ["esnext", "DOM", "DOM.Iterable"],
     "module": "esnext",
     "skipLibCheck": true,
-    "types": ["cypress", "node", "src/types"],
+    "types": ["cypress", "@testing-library/cypress", "node", "src/types"],
     "paths": {
       "@design-system": ["./src/design-system"]
     },
