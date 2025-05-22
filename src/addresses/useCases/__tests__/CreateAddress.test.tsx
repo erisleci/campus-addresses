@@ -1,5 +1,4 @@
 import { App } from '../../../App';
-import { createFieldsStub } from '../../../testing/fields.stub';
 
 describe('Create address', () => {
     it('create local address', () => {
@@ -103,7 +102,7 @@ describe('Create address', () => {
             );
     });
 
-    it.only('see error when mandatory field is empty', () => {
+    it('see error when mandatory field is empty', () => {
         cy.intercept('GET', '**/local', {
             body: {
                 id: 'local',

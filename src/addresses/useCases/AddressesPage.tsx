@@ -1,6 +1,6 @@
 import { FocusPageLayout, HeroTitle } from '@design-system';
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react';
-import { object, string, ValidationError } from 'yup';
+import { ValidationError } from 'yup';
 import { createFormSchema } from './lib/formSchema';
 
 type Field = {
@@ -180,16 +180,21 @@ export const AddressesPage = () => {
                                             maxLength={field.maxLength}
                                             onChange={handleChange}
                                             className="border-1 w-full"
+                                            aria-describedby={
+                                                fieldErrors[key] && `${key}-error`
+                                            }
                                         />
                                     )}
                                     {fieldErrors[key] && (
-                                        <div
+                                        <p
+                                            id={`${key}-error`}
                                             role="alert"
                                             aria-live="assertive"
+                                            aria-label={fieldErrors[key]}
                                             className="bg-red-500/10"
                                         >
                                             {fieldErrors[key]}
-                                        </div>
+                                        </p>
                                     )}
                                 </div>
                             ))}
