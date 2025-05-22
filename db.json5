@@ -1,5 +1,26 @@
 {
-    addresses: [],
+    addresses: [
+        {
+            id: '9386',
+            buildingName: '',
+            street: 'c',
+            districtName: '',
+            postalCode: 'c',
+            townName: 'c',
+            regionName: '',
+            country: 'IT'
+        },
+        {
+            id: 'c7a0',
+            buildingName: '',
+            street: 'dfdfg',
+            districtName: '',
+            postalCode: 'dfgdf',
+            townName: 'dfgdfg',
+            regionName: '',
+            country: 'IT'
+        }
+    ],
     'address-fields': [
         {
             id: 'local',

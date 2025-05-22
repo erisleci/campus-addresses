@@ -26,5 +26,5 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true
   },
-  "include": ["src", "cypress"],
+  "include": ["src", "cypress", "@testing-library/cypress"],
 }

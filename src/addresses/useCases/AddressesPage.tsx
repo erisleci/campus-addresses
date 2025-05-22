@@ -191,9 +191,13 @@ export const AddressesPage = () => {
                                         />
                                     )}
                                     {fieldErrors[key] && (
-                                        <p className="bg-red-500/10">
+                                        <div
+                                            role="alert"
+                                            aria-live="assertive"
+                                            className="bg-red-500/10"
+                                        >
                                             {fieldErrors[key]}
-                                        </p>
+                                        </div>
                                     )}
                                 </div>
                             ))}
